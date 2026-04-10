@@ -1,127 +1,127 @@
 var userData = JSON.parse(localStorage.getItem('userdata')) || {};
 
-// // dummy data function
-// function dummyData() {
-//     userData['john.doe@gmail.com'] = {
-//         firstname: 'John',
-//         lastname: 'Doe',
-//         email: 'john.doe@gmail.com',
-//         mobile: '+11234567801',
-//         shift: 'AM',
-//         gender: 'Male',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+// dummy data function
+function dummyData() {
+    userData['john.doe@gmail.com'] = {
+        firstname: 'John',
+        lastname: 'Doe',
+        email: 'john.doe@gmail.com',
+        mobile: '+11234567801',
+        shift: 'AM',
+        gender: 'Male',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['jane.smith@gmail.com'] = {
-//         firstname: 'Jane',
-//         lastname: 'Smith',
-//         email: 'jane.smith@gmail.com',
-//         mobile: '+11234567802',
-//         shift: 'PM',
-//         gender: 'Female',
-//         role: 'Admin',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['jane.smith@gmail.com'] = {
+        firstname: 'Jane',
+        lastname: 'Smith',
+        email: 'jane.smith@gmail.com',
+        mobile: '+11234567802',
+        shift: 'PM',
+        gender: 'Female',
+        role: 'Admin',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['arun.kumar@gmail.com'] = {
-//         firstname: 'Arun',
-//         lastname: 'Kumar',
-//         email: 'arun.kumar@gmail.com',
-//         mobile: '+11234567803',
-//         shift: 'AM',
-//         gender: 'Male',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['arun.kumar@gmail.com'] = {
+        firstname: 'Arun',
+        lastname: 'Kumar',
+        email: 'arun.kumar@gmail.com',
+        mobile: '+11234567803',
+        shift: 'AM',
+        gender: 'Male',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['priya.ravi@gmail.com'] = {
-//         firstname: 'Priya',
-//         lastname: 'Ravi',
-//         email: 'priya.ravi@gmail.com',
-//         mobile: '+11234567804',
-//         shift: 'PM',
-//         gender: 'Female',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['priya.ravi@gmail.com'] = {
+        firstname: 'Priya',
+        lastname: 'Ravi',
+        email: 'priya.ravi@gmail.com',
+        mobile: '+11234567804',
+        shift: 'PM',
+        gender: 'Female',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['rahul.sharma@gmail.com'] = {
-//         firstname: 'Rahul',
-//         lastname: 'Sharma',
-//         email: 'rahul.sharma@gmail.com',
-//         mobile: '+11234567805',
-//         shift: 'AM',
-//         gender: 'Male',
-//         role: 'Manager',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['rahul.sharma@gmail.com'] = {
+        firstname: 'Rahul',
+        lastname: 'Sharma',
+        email: 'rahul.sharma@gmail.com',
+        mobile: '+11234567805',
+        shift: 'AM',
+        gender: 'Male',
+        role: 'Manager',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['sneha.iyer@gmail.com'] = {
-//         firstname: 'Sneha',
-//         lastname: 'Iyer',
-//         email: 'sneha.iyer@gmail.com',
-//         mobile: '+11234567806',
-//         shift: 'PM',
-//         gender: 'Female',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['sneha.iyer@gmail.com'] = {
+        firstname: 'Sneha',
+        lastname: 'Iyer',
+        email: 'sneha.iyer@gmail.com',
+        mobile: '+11234567806',
+        shift: 'PM',
+        gender: 'Female',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['vikram.singh@gmail.com'] = {
-//         firstname: 'Vikram',
-//         lastname: 'Singh',
-//         email: 'vikram.singh@gmail.com',
-//         mobile: '+11234567807',
-//         shift: 'AM',
-//         gender: 'Male',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['vikram.singh@gmail.com'] = {
+        firstname: 'Vikram',
+        lastname: 'Singh',
+        email: 'vikram.singh@gmail.com',
+        mobile: '+11234567807',
+        shift: 'AM',
+        gender: 'Male',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['anjali.mehta@gmail.com'] = {
-//         firstname: 'Anjali',
-//         lastname: 'Mehta',
-//         email: 'anjali.mehta@gmail.com',
-//         mobile: '+11234567808',
-//         shift: 'PM',
-//         gender: 'Female',
-//         role: 'Admin',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['anjali.mehta@gmail.com'] = {
+        firstname: 'Anjali',
+        lastname: 'Mehta',
+        email: 'anjali.mehta@gmail.com',
+        mobile: '+11234567808',
+        shift: 'PM',
+        gender: 'Female',
+        role: 'Admin',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['karthik.r@gmail.com'] = {
-//         firstname: 'Karthik',
-//         lastname: 'R',
-//         email: 'karthik.r@gmail.com',
-//         mobile: '+11234567809',
-//         shift: 'AM',
-//         gender: 'Male',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
+    userData['karthik.r@gmail.com'] = {
+        firstname: 'Karthik',
+        lastname: 'R',
+        email: 'karthik.r@gmail.com',
+        mobile: '+11234567809',
+        shift: 'AM',
+        gender: 'Male',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
 
-//     userData['divya.s@gmail.com'] = {
-//         firstname: 'Divya',
-//         lastname: 'S',
-//         email: 'divya.s@gmail.com',
-//         mobile: '+11234567810',
-//         shift: 'PM',
-//         gender: 'Female',
-//         role: 'User',
-//         password: 'pass1234',
-//         terms: true
-//     };
-// }
+    userData['divya.s@gmail.com'] = {
+        firstname: 'Divya',
+        lastname: 'S',
+        email: 'divya.s@gmail.com',
+        mobile: '+11234567810',
+        shift: 'PM',
+        gender: 'Female',
+        role: 'User',
+        password: 'pass1234',
+        terms: true
+    };
+}
 // get all data from localstorage
 
 // validatePassword function
@@ -374,7 +374,7 @@ form.addEventListener('submit', function (event) {
                 'terms': terms
             };
 
-            // dummyData();
+            dummyData();
             console.log(userData);
 
             localStorage.setItem('userdata', JSON.stringify(userData));
