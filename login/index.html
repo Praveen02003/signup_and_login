@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <!-- loginform container -->
+    <div class="loginForm">
+
+        <!-- heading -->
+        <h2>Login</h2>
+
+        <!-- login form -->
+        <form id="loginForm" novalidate>
+
+            <!-- email -->
+            <div class="inputGroup">
+                <input type="email" placeholder="Enter Email" id="email">
+                <p id="emailError"></p>
+            </div>
+
+            <!-- password -->
+            <div class="inputGroup">
+                <input type="password" placeholder="Enter Password" id="password">
+                <p id="passwordError"></p>
+            </div>
+
+            <!-- submit button -->
+            <button type="submit">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                Login
+            </button>
+
+        </form>
+
+        <!-- link -->
+        <div class="link">
+            Don't have an account?
+            <a href="/signup/index.html">
+                <i class="fa-solid fa-user-plus"></i>
+                Sign Up
+            </a>
+        </div>
+
+    </div>
+
+    <!-- external js -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

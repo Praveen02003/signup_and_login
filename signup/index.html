@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Signup Page</title>
+</head>
+
+<body>
+
+    <!-- main container -->
+    <div class="main">
+
+        <h2>Sign Up</h2>
+
+        <!-- signup form -->
+        <form id="signupForm" novalidate>
+
+            <!-- first name -->
+            <div class="inputGroup">
+                <input type="text" placeholder="First Name" id="firstName">
+            </div>
+            <p id="firstNameError"></p>
+
+            <!-- last name -->
+            <div class="inputGroup">
+                <input type="text" placeholder="Last Name" id="lastName">
+            </div>
+            <p id="lastNameError"></p>
+
+            <!-- email -->
+            <div class="inputGroup">
+                <input type="email" placeholder="Email" id="email">
+            </div>
+            <p id="emailError"></p>
+
+            <!-- mobile -->
+            <div class="inputGroup">
+                <label for="mobile">+1</label>
+                <input type="tel" placeholder="Mobile" id="mobile">
+            </div>
+            <p id="mobileError"></p>
+
+            <!-- shift -->
+            <div class="inputGroup">
+                <select id="shift">
+                    <option value="">Select Shift</option>
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
+            <p id="shiftError"></p>
+
+            <!-- gender -->
+            <div class="inputGroup">
+                <select id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <p id="genderError"></p>
+
+            <!-- role -->
+            <div class="inputGroup">
+                <input type="text" placeholder="Job Title / Role" id="role">
+            </div>
+            <p id="roleError"></p>
+
+            <!-- password -->
+            <div class="inputGroup">
+                <input type="password" placeholder="Password" id="password">
+            </div>
+            <p id="passwordError"></p>
+
+            <!-- confirm-password -->
+            <div class="inputGroup">
+                <input type="password" placeholder="Confirm Password" id="confirmPassword">
+            </div>
+            <p id="confirmPasswordError"></p>
+
+            <!-- terms -->
+            <div class="mainTerms">
+                <div class="termsRow">
+                    <input type="checkbox" id="terms">
+                    <label for="terms">Terms & Conditions</label>
+                </div>
+                <p id="termsError"></p>
+            </div>
+
+            <!-- submit button -->
+            <button type="submit">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Register
+            </button>
+
+        </form>
+
+        <!-- link -->
+        <div class="link">
+            Already have an account?
+            <a href="/login/index.html">Login</a>
+        </div>
+
+    </div>
+
+    <!-- external js -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- total container -->
+    <div class="container">
+        <!-- headerRow -->
+        <header class="headerRow">
+            <!-- welcomeMessage -->
+            <h2 id="welcomeMessage">
+
+            </h2>
+            <!-- logoutButton -->
+            <button id="myProductsButton">
+                Go to My Products
+                <i class="fa-solid fa-right-long"></i>
+            </button>
+            <button id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+        </header>
+
+        <!-- topBar -->
+        <div class="topBar">
+            <div class="left">
+                <!-- addUserButton -->
+                <button id="addUserButton">
+                    <i class="fa-solid fa-plus"></i> Add New User
+                </button>
+            </div>
+
+            <div class="center">
+                <div class="inputGroup">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search by Name, Email, or Mobile Number" id="search">
+                </div>
+
+                <!-- selectShift -->
+                <select id="selectShift">
+                    <option value="">All Shifts</option>
+                    <option value="AM">AM Shift</option>
+                    <option value="PM">PM Shift</option>
+                </select>
+
+                <!-- selectGender -->
+                <select id="selectGender">
+                    <option value="">All Genders</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <!-- selectSort -->
+                <div class="dropdown">
+                    <button class="dropdownButton" id="dropdownButton">
+                        <i class="fa-solid fa-filter"></i>
+                        Sort By
+                    </button>
+
+                    <div id="dropdownContent" class="dropDownContent">
+                        <label>
+                            <input type="checkbox" value="nameAscending"> Name Ascending
+                        </label>
+                        <label>
+                            <input type="checkbox" value="nameDescending"> Name Descending
+                        </label>
+                        <label>
+                            <input type="checkbox" value="emailAscending"> Email Ascending
+                        </label>
+                        <label>
+                            <input type="checkbox" value="emailDescending"> Email Descending
+                        </label>
+                    </div>
+                </div>
+
+                <!-- buttonGroup -->
+                <div class="buttonGroup">
+                    <button id="searchButton">Apply</button>
+                    <button id="clearButton">Clear</button>
+                </div>
+            </div>
+        </div>
+        <!-- noData (comes as dynamic) -->
+        <h2 id="noData"></h2>
+
+        <!-- cardContainer -->
+        <div id="userList" class="cardContainer"></div>
+        <!-- pagination -->
+        <div id="pagination"></div>
+    </div>
+
+
+    <!-- delete confimation modal -->
+    <div id="mainModal" class="mainModal">
+        <div class="modalContent">
+
+            <div class="modalHeader">
+                <h2>Delete Confirmation</h2>
+            </div>
+
+            <div class="modalBody">
+                <h3>Are You Sure Want to Delete ?</h3>
+            </div>
+
+            <div class="modalFooter">
+                <button id="okModalButton">Ok</button>
+                <button id="closeModalButton">Close</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- View Modal -->
+
+    <!-- Modal -->
+    <div id="userModal" class="userModal">
+        <div class="contentModal">
+
+            <div class="headerModal">
+                <h2>User Details</h2>
+            </div>
+
+            <div class="userModalBody" id="userModalBody">
+                <!-- user data comes from dynamic -->
+            </div>
+
+            <div class="footerModal">
+                <button id="modalClose">Close</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

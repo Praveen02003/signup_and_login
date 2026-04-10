@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Products</title>
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- container -->
+    <div class="container">
+
+        <!-- headerRow -->
+        <header class="headerRow">
+            <h2>
+                <i class="fa-solid fa-box"></i>
+                Products
+            </h2>
+            <button id="backButton">
+                <i class="fa-solid fa-left-long"></i>
+                Back to Dashboard
+            </button>
+            <button id="logoutButton">
+                <i class="fa-solid fa-right-from-bracket"></i> 
+                Logout
+            </button>
+        </header>
+
+        <!-- topBar -->
+        <div class="topBar">
+            <div class="right">
+                <div class="inputGroup">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="search" placeholder="Search by name or category or brand" id="searchInput">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- mainTable -->
+        <div id="mainTable">
+            <div id="mainLoader">
+                <div id="loader"></div>
+            </div>
+
+        </div>
+
+        <!-- pagination -->
+        <div id="pagination"></div>
+    </div>
+
+    <!-- viewModal -->
+    <div id="viewModal">
+        <div class="viewModalContent">
+            <div class="viewModalHeader">
+                <h2>Product Details</h2>
+            </div>
+            <div id="viewModalBody">
+
+            </div>
+            <div class="viewModalFooter">
+                <button id="closeButton">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- external js -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

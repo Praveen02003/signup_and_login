@@ -1,0 +1,177 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* body part style */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #88f0b6, #dabcfa);
+    opacity: 0;
+    animation: fadeInPage 0.4s ease-in forwards;
+}
+
+/* main container style part */
+.main {
+    width: 100%;
+    max-width: 420px;
+
+    background: #fff;
+    padding: 25px 30px;
+
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* form part style */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+
+form div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+form div input {
+    flex: 1;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+/* input and select part style */
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+/* add focus to input and select */
+input:focus,
+select:focus {
+    border-color: #4facfe;
+}
+
+/* label part style */
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+
+.mainTerms {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.termsRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+/* input style part */
+.termsRow input,
+input[type="checkbox"] {
+    width: auto;
+    flex: none;
+}
+
+
+form div:nth-child(4) {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+form div:nth-child(4) input {
+    flex: 1;
+}
+
+
+form div:nth-last-child(2) input {
+    width: auto;
+}
+
+/* error message style part */
+p {
+    font-size: 12px;
+    color: red;
+    margin-left: 5px;
+    min-height: 14px;
+}
+
+/* button part style */
+button {
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #4facfe;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* hover effect */
+button:hover {
+    background: #3a8ee6;
+}
+
+/* link part style */
+.link {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.link a {
+    color: #4facfe;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* fade in animation */
+@keyframes fadeInPage {
+    to {
+        opacity: 1;
+    }
+}
+
+/* responsive */
+@media (max-width: 500px) {
+    .main {
+        margin: 10px;
+        padding: 20px;
+    }
+}

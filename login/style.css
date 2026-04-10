@@ -1,0 +1,119 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* body part style */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    background-color: #f7f4ef;
+    color: #1c1410;
+    opacity: 0;
+    animation: fadeInPage 0.4s ease-in forwards;
+}
+
+/* loginform style */
+.loginForm {
+    width: 100%;
+    max-width: 350px;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.loginForm h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* form part style */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup p {
+    margin-top: 8px;
+    margin-left: 5px;
+}
+
+/* input part style */
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* add focus to input */
+input:focus {
+    border-color: #667eea;
+}
+
+/* error message style */
+p {
+    font-size: 12px;
+    color: red;
+    min-height: 14px;
+}
+
+/* button part style */
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #d5693f;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* add hover effect */
+button:hover {
+    background: #ca6b34;
+}
+
+/* link part style */
+.link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* fade in animation */
+@keyframes fadeInPage {
+    to {
+        opacity: 1;
+    }
+}
+
+/* responsive */
+@media (max-width: 500px) {
+    .loginForm {
+        margin: 10px;
+        padding: 20px;
+    }
+}
