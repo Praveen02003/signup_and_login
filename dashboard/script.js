@@ -301,7 +301,7 @@ function displayUsers() {
         card.innerHTML = `
             <div class="cardHeader">
                 <div class="cardHeaderText">
-                    <h3>${user.firstname}.${user.lastname}</h3>
+                    <h3>${user.firstname} ${user.lastname}</h3>
                     <small>${user.role}</small>
                 </div>
             </div>
