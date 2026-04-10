@@ -1,3 +1,6 @@
+// initialize timer
+var timer;
+
 // target myProductsButton
 var myProductsButton = document.getElementById('myProductsButton');
 
@@ -196,7 +199,6 @@ function enableViewButtons() {
 }
 
 // paginationConcept function
-
 function paginationConcept() {
     var pagination = document.getElementById('pagination');
     pagination.innerHTML = "";
@@ -338,17 +340,20 @@ function displayUsers() {
 function updateUI(filteredData) {
     const noData = document.getElementById('noData');
 
+    startPage = 0;
+    endPage = cardPerPage;
+
     if (filteredData.length > 0) {
         noData.textContent = "";
         userDataValues = filteredData;
     } else {
         noData.textContent = "No matching records found";
         userDataValues = [];
-        var pagination = document.getElementById('pagination');
-        pagination.innerHTML = "";
+        document.getElementById('pagination').innerHTML = "";
     }
-    // call displayUsers function
-    displayUsers()
+
+    displayUsers();
+    paginationConcept();
 }
 
 // searchData function
@@ -361,60 +366,45 @@ function searchData(searchValue = "", shift = "", gender = "", sortName = "", so
 
         let user = userDataArray[i];
 
-        let matchesSearch = false;
-
-        if (user.firstname.toLowerCase().includes(searchValue.toLowerCase()) ||
+        let matchesSearch =
+            user.firstname.toLowerCase().includes(searchValue.toLowerCase()) ||
             user.lastname.toLowerCase().includes(searchValue.toLowerCase()) ||
             user.email.toLowerCase().includes(searchValue.toLowerCase()) ||
             user.mobile.includes(searchValue) ||
             user.role.toLowerCase().includes(searchValue.toLowerCase()) ||
             user.gender.toLowerCase().includes(searchValue.toLowerCase()) ||
-            user.shift.toLowerCase().includes(searchValue.toLowerCase())
-        ) {
-            matchesSearch = true;
-        }
+            user.shift.toLowerCase().includes(searchValue.toLowerCase());
 
-        let matchesShift = false;
+        let matchesShift =
+            shift === "" || user.shift.toLowerCase() === shift.toLowerCase();
 
-        if (shift === "") {
-            matchesShift = true;
-        } else if (user.shift.toLowerCase() === shift.toLowerCase()) {
-            matchesShift = true;
-        }
-
-        let matchesGender = false;
-
-        if (gender === "") {
-            matchesGender = true;
-        } else if (user.gender.toLowerCase() === gender.toLowerCase()) {
-            matchesGender = true;
-        }
+        let matchesGender =
+            gender === "" || user.gender.toLowerCase() === gender.toLowerCase();
 
         if (matchesSearch && matchesShift && matchesGender) {
             filteredData.push(user);
         }
-
-        filteredData.sort((a, b) => {
-
-            var nameResult = 0;
-            var emailResult = 0;
-
-            if (sortName) {
-                nameResult = (sortName === "nameAscending") ? a.firstname.localeCompare(b.firstname) : b.firstname.localeCompare(a.firstname);
-            }
-
-            if (sortEmail) {
-                emailResult = (sortEmail === "emailAscending") ? a.email.localeCompare(b.email) : b.email.localeCompare(a.email);
-            }
-
-            if (nameResult !== 0) {
-                return nameResult;
-            }
-
-            return emailResult;
-        });
     }
-    // call update UI function
+
+    filteredData.sort((a, b) => {
+        let nameResult = 0;
+        let emailResult = 0;
+
+        if (sortName) {
+            nameResult = (sortName === "nameAscending")
+                ? a.firstname.localeCompare(b.firstname)
+                : b.firstname.localeCompare(a.firstname);
+        }
+
+        if (sortEmail) {
+            emailResult = (sortEmail === "emailAscending")
+                ? a.email.localeCompare(b.email)
+                : b.email.localeCompare(a.email);
+        }
+
+        return nameResult !== 0 ? nameResult : emailResult;
+    });
+
     updateUI(filteredData);
 }
 
@@ -464,16 +454,20 @@ const selectGender = document.getElementById('selectGender');
 // add input event in searchInput
 searchInput.addEventListener('input', function (event) {
 
+    clearTimeout(timer);
+
     let searchValue = event.target.value;
     let shift = selectShift.value;
     let gender = selectGender.value;
 
-    clearButton.style.display = searchValue ? "inline-block" : "none";
-    setTimeout(function () {
-        searchData(searchValue, shift, gender);
-    }, 1500);
-});
+    document.getElementById('userList').innerHTML = "";
 
+    clearButton.style.display = searchValue ? "inline-block" : "none";
+
+    timer = setTimeout(function () {
+        searchData(searchValue, shift, gender, selectedSortNameData, selectedSortEmailData);
+    }, 500);
+});
 
 // triggerFilter function
 
@@ -481,9 +475,11 @@ function triggerFilter() {
     let searchValue = searchInput.value;
     let shiftValue = selectShift.value;
     let genderValue = selectGender.value;
-    clearButton.style.display = (searchValue || shiftValue || genderValue || selectedSortNameData || selectedSortEmailData) ? "inline-block" : "none";
 
-    searchData(searchValue, shiftValue, genderValue, selectedSortNameData, selectedSortNameData);
+    clearButton.style.display =
+        (searchValue || shiftValue || genderValue || selectedSortNameData || selectedSortEmailData) ? "inline-block" : "none";
+
+    searchData(searchValue, shiftValue, genderValue, selectedSortNameData, selectedSortEmailData);
 }
 
 // add click event in search button
@@ -497,12 +493,12 @@ clearButton.addEventListener('click', function () {
     document.getElementById('noData').textContent = "";
     toggleDropdown();
 
-    // loop the checkbox to uncheck
     checkBoxes.forEach(element => {
         element.checked = false;
     });
 
-    selectedSortData = "";
+    selectedSortNameData = "";
+    selectedSortEmailData = "";
 
     searchInput.value = "";
     selectShift.value = "";
@@ -511,7 +507,12 @@ clearButton.addEventListener('click', function () {
     this.style.display = "none";
 
     userDataValues = Object.values(userData);
+
+    startPage = 0;
+    endPage = cardPerPage;
+
     displayUsers();
+    paginationConcept();
 });
 
 // authUser function

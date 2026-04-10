@@ -69,7 +69,7 @@ async function fetchData() {
         // call the hideLoaderSymbol function
         hideLoaderSymbol();
 
-        var mainLoader = document.getElementById('mainLoader')
+        var mainLoader = document.getElementById('mainLoader');
 
         if (mainLoader.style.display === "none") {
             // target mainTable
@@ -94,6 +94,81 @@ async function fetchData() {
     }
 }
 
+// paginationConcept function
+
+function paginationConcept() {
+    var pagination = document.getElementById('pagination');
+    pagination.innerHTML = "";
+    // console.log(allProducts.length);
+
+
+    var totalPages = Math.ceil(allProducts.length / rowPerPage);
+
+    let currentPage = Math.floor(startPage / rowPerPage) + 1;
+
+    // create previous button
+    var createPreviousButton = document.createElement('button');
+    createPreviousButton.innerText = "Previous";
+
+    createPreviousButton.disabled = currentPage === 1;
+
+    createPreviousButton.addEventListener('click', function () {
+        if (currentPage > 1) {
+            startPage -= rowPerPage;
+            endPage = startPage + rowPerPage;
+            fetchData();
+            paginationConcept();
+        }
+    });
+
+    pagination.appendChild(createPreviousButton);
+
+    // loop the pagination number
+    for (let index = 1; index <= totalPages; index++) {
+        // create a pagination button
+        var createButton = document.createElement("button");
+        createButton.innerText = index;
+        createButton.setAttribute('id', index);
+
+        // apply active functionality
+        if (index === currentPage) {
+            createButton.classList.add("activeButton");
+            createButton.style.backgroundColor = "#4CAF50";
+            createButton.style.color = "#fff";
+        }
+
+        createButton.addEventListener('click', function () {
+            var indexNumber = this.getAttribute('id')
+            // console.log(indexNumber);
+            document.getElementById('searchInput').value = "";
+
+            startPage = (indexNumber - 1) * rowPerPage;
+            endPage = startPage + rowPerPage;
+            fetchData();
+            paginationConcept();
+        });
+
+        pagination.appendChild(createButton);
+    }
+
+    // create next button
+    var createNextButton = document.createElement('button');
+    createNextButton.innerText = "Next";
+
+    createNextButton.disabled = currentPage === totalPages;
+
+    createNextButton.addEventListener('click', function () {
+        if (currentPage < totalPages) {
+            startPage += rowPerPage;
+            endPage = startPage + rowPerPage;
+            fetchData();
+            paginationConcept();
+        }
+    });
+
+    pagination.appendChild(createNextButton);
+}
+
 
 // Append element function
 function appendElement(allProducts) {
@@ -101,7 +176,7 @@ function appendElement(allProducts) {
     document.getElementById('tbody').innerHTML = "";
 
     // foreach the products and append
-    allProducts.slice(startPage, endPage).forEach(element => {
+    allProducts.slice(startPage, endPage).forEach((element, index) => {
         var trElement = `
             <tr id="tbodyTr">
                 <td>${element.id}.</td>
@@ -226,13 +301,14 @@ function openModal(getData) {
 var searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', function (event) {
     var inputValue = event.target.value;
+
     // after 1500 ms searchData function call
     setTimeout(() => {
         searchData(inputValue)
     }, 1500);
 })
 
-
+// searchData function
 function searchData(inputValue) {
 
     var noData = document.getElementById('noData');
@@ -241,18 +317,21 @@ function searchData(inputValue) {
     }
 
     if (inputValue) {
-        let filteredData = allProducts.filter(element =>
+
+        filteredProducts = allProducts.filter(element =>
             element.title?.toLowerCase().includes(inputValue.toLowerCase()) ||
             element.category?.toLowerCase().includes(inputValue.toLowerCase()) ||
             element.brand?.toLowerCase().includes(inputValue.toLowerCase())
         );
 
+        startPage = 0;
+
         document.getElementById('tbody').innerHTML = "";
 
-        if (filteredData.length > 0) {
-            appendElement(filteredData);
-        }
-        else {
+        if (filteredProducts.length > 0) {
+            appendElement(filteredProducts.slice(startPage, endPage));
+            paginationConcept();
+        } else {
             document.getElementById('pagination').innerHTML = "";
             const tbody = document.getElementById('tbody');
 
@@ -262,92 +341,14 @@ function searchData(inputValue) {
                         <div id="noData">No Records Found</div>
                     </td>
                 </tr>
-                `;
+            `;
         }
-    }
-    else {
+
+    } else {
         document.getElementById('tbody').innerHTML = "";
         fetchData();
     }
 }
-
-// paginationConcept function
-
-function paginationConcept() {
-    var pagination = document.getElementById('pagination');
-    pagination.innerHTML = "";
-    // console.log(allProducts.length);
-
-
-    var totalPages = Math.ceil(allProducts.length / rowPerPage);
-
-    let currentPage = Math.floor(startPage / rowPerPage) + 1;
-
-    // create previous button
-    var createPreviousButton = document.createElement('button');
-    createPreviousButton.innerText = "Previous";
-
-    createPreviousButton.disabled = currentPage === 1;
-
-    createPreviousButton.addEventListener('click', function () {
-        if (currentPage > 1) {
-            startPage -= rowPerPage;
-            endPage = startPage + rowPerPage;
-            fetchData();
-            paginationConcept();
-        }
-    });
-
-    pagination.appendChild(createPreviousButton);
-
-    // loop the pagination number
-    for (let index = 1; index <= totalPages; index++) {
-        // create a pagination button
-        var createButton = document.createElement("button");
-        createButton.innerText = index;
-        createButton.setAttribute('id', index);
-
-        // apply active functionality
-        if (index === currentPage) {
-            createButton.classList.add("activeButton");
-            createButton.style.backgroundColor = "#4CAF50";
-            createButton.style.color = "#fff";
-        }
-
-        createButton.addEventListener('click', function () {
-            var indexNumber = this.getAttribute('id')
-            // console.log(indexNumber);
-
-
-            startPage = (indexNumber - 1) * rowPerPage;
-            endPage = startPage + rowPerPage;
-            fetchData();
-            paginationConcept();
-        });
-
-        pagination.appendChild(createButton);
-    }
-
-    // create next button
-    var createNextButton = document.createElement('button');
-    createNextButton.innerText = "Next";
-
-    createNextButton.disabled = currentPage === totalPages;
-
-    createNextButton.addEventListener('click', function () {
-        if (currentPage < totalPages) {
-            startPage += rowPerPage;
-            endPage = startPage + rowPerPage;
-            fetchData();
-            paginationConcept();
-        }
-    });
-
-    pagination.appendChild(createNextButton);
-}
-
-
-
 
 // authUser function
 
