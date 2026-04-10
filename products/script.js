@@ -257,7 +257,7 @@ function openModal(getData) {
     document.getElementById('viewModalBody').innerHTML = "";
     var modalContent = `
         <div class="detailRow">
-            <span class="detailHeading">Product Name</span>
+            <span class="detailHeading">Title</span>
             <span class="detailValue">${finalData.title}</span>
         </div>
         <div class="detailRow">

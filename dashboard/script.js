@@ -304,20 +304,22 @@ function displayUsers() {
             <div class="cardHeader">
                 <div class="cardHeaderText">
                     <h3>${user.firstname} ${user.lastname}</h3>
-                    <small>${user.role}</small>
+                    <hr>
+                    <small><strong>Role</strong> : ${user.role}</small>
+                    <hr>
                 </div>
             </div>
         
             <div class="cardBody">
                 <p><span>Email</span>   <span>${user.email}</span></p>
                 <p><span>Phone</span>   <span>${user.mobile}</span></p>
-                <p><span>Shift</span>   <span class="shiftBadge ${user.shift.toLowerCase()}">${user.shift}</span></p>
+                <p><span>Shift</span>   <span class="shiftBadge">${user.shift}</span></p>
                 <p><span>Gender</span>  <span>${user.gender}</span></p>
             </div>
         
             <div class="actions">
                 <button class="editButton" data='${JSON.stringify(user)}'>
-                    <i class="fa-regular fa-pen-to-square"></i> Edit Profile
+                    <i class="fa-regular fa-pen-to-square"></i>
                 </button>
                 <button class="viewButton" data='${JSON.stringify(user)}'>
                     <i class="fa-solid fa-eye"></i>
@@ -491,7 +493,7 @@ searchButton.addEventListener('click', function () {
 clearButton.addEventListener('click', function () {
 
     document.getElementById('noData').textContent = "";
-    toggleDropdown();
+    document.getElementById("dropdownContent").style.display = "none";
 
     checkBoxes.forEach(element => {
         element.checked = false;

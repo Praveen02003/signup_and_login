@@ -13,7 +13,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 40px 0;
-    background: linear-gradient(135deg, #88f0b6, #dabcfa);
     opacity: 0;
     animation: fadeInPage 0.4s ease-in forwards;
 }

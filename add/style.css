@@ -13,8 +13,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 40px 0;
-    font-family: monospace;
-    background-color: #f7f4ef;
     color: #1c1410;
     opacity: 0;
     animation: fadeInPage 0.4s ease-in forwards;
@@ -161,8 +159,7 @@ button:hover {
 .link a {
     border-radius: 6px;
     padding: 12px;
-    color: #ffffff;
-    background: #c2410c;
+    color: #0857b1;
     text-decoration: none;
     font-weight: 500;
 }
