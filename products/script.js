@@ -1,10 +1,10 @@
 // showLoaderSymbol function
 function showLoaderSymbol() {
-    document.getElementById('mainLoader').style.display = "flex";
+    document.getElementById('spinnerBorder').style.display = "inline-block";
 }
 // hideLoaderSymbol function
 function hideLoaderSymbol() {
-    document.getElementById('mainLoader').style.display = "none";
+    document.getElementById('spinnerBorder').style.display = "none";
 }
 
 // goToDashboardPage function
@@ -69,9 +69,9 @@ async function fetchData() {
         // call the hideLoaderSymbol function
         hideLoaderSymbol();
 
-        var mainLoader = document.getElementById('mainLoader');
+        var spinnerBorder = document.getElementById('spinnerBorder');
 
-        if (mainLoader.style.display === "none") {
+        if (spinnerBorder.style.display === "none") {
             // target mainTable
             var mainTable = document.getElementById('mainTable');
 
@@ -286,7 +286,7 @@ function openModal(getData) {
         <div class="detailRow">
             <span class="detailHeading">Status</span>
             <span class="detailValue">
-                <span class="statusBadge instock">${(finalData.stock > 0) ? 'In Stock' : 'Out of Stock'}</span>
+                <span class="statusBadge">${(finalData.stock > 0) ? 'In Stock' : 'Out of Stock'}</span>
             </span>
         </div>
     `

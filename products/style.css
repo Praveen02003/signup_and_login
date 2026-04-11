@@ -129,6 +129,7 @@ button:disabled {
     margin: 3px;
 }
 
+/* activeButton added in dynamic */
 .activeButton {
     background: green !important;
     color: white;
@@ -203,12 +204,8 @@ button:disabled {
 .statusBadge {
     padding: 3px 8px;
     border-radius: 5px;
-    color: white;
-    font-size: 12px;
-}
-
-.statusBadge.instock {
-    background: green;
+    color: black;
+    font-size: 14px;
 }
 
 /* noData */
@@ -234,6 +231,21 @@ button:disabled {
 #closeButton {
     background-color: black;
     color: white;
+}
+
+/* spinnerBorder */
+#spinnerBorder {
+    margin-left: 40rem;
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -.125em;
+    justify-content: center;
+    border: .25em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    -webkit-animation: .75s linear infinite spinner-border;
+    animation: .75s linear infinite spin;
 }
 
 @media(max-width:480px) {
@@ -268,6 +280,10 @@ button:disabled {
 
 @media (max-width: 768px) {
 
+    #spinnerBorder {
+        margin-left: 9rem;
+    }
+
     #table th,
     #table td {
         font-size: 12px;
@@ -290,4 +306,3 @@ button:disabled {
         font-size: 12px;
     }
 }
-

@@ -138,11 +138,12 @@ select {
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(321px, 1fr));
-    gap: 15px;
+    gap: 14px;
 }
 
 /* userCard */
 .userCard {
+    max-width: 22rem;
     background: white;
     padding: 15px;
     border-radius: 8px;
