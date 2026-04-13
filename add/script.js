@@ -504,7 +504,7 @@ function authUser() {
     const loginUser = JSON.parse(localStorage.getItem('loginuser'));
 
     if (!loginUser) {
-        window.location.href = '/login/index.html';
+        window.location.href = '../index.html';
     }
 }
 

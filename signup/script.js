@@ -258,7 +258,7 @@ form.addEventListener('submit', function (event) {
             alert("Signup Success");
 
             setTimeout(function () {
-                window.location.href = "/login/index.html";
+                window.location.href = "../index.html";
             }, 500);
         }
     }

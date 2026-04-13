@@ -430,7 +430,7 @@ function authUser() {
     const editEmail = localStorage.getItem('editemail');
 
     if (!loginUser) {
-        window.location.href = '/login/index.html';
+        window.location.href = '../index.html';
     } else if (!storedEditData || !editEmail) {
         window.location.href = '/dashboard/index.html';
     } else {

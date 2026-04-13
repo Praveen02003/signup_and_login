@@ -123,7 +123,7 @@ var endPage = cardPerPage;
 // logout function
 function logoutUser() {
     localStorage.removeItem('loginuser');
-    window.location.href = '/login/index.html';
+    window.location.href = '../index.html';
 }
 
 // navigate to add user page
@@ -355,7 +355,6 @@ function updateUI(filteredData) {
     }
 
     displayUsers();
-    paginationConcept();
 }
 
 // searchData function
@@ -526,7 +525,7 @@ function authUser() {
         displayUsers()
         paginationConcept()
     } else {
-        window.location.href = '/login/index.html';
+        window.location.href = '../index.html';
     }
 }
 

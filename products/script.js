@@ -1,10 +1,13 @@
 // showLoaderSymbol function
 function showLoaderSymbol() {
     document.getElementById('spinnerBorder').style.display = "inline-block";
+    document.getElementById('container').style.display = 'none';
 }
 // hideLoaderSymbol function
 function hideLoaderSymbol() {
     document.getElementById('spinnerBorder').style.display = "none";
+    document.getElementById('container').style.display = 'block';
+
 }
 
 // goToDashboardPage function
@@ -21,7 +24,7 @@ backButton.addEventListener('click', function () {
 // logoutUser function
 function logoutUser() {
     localStorage.removeItem('loginuser');
-    window.location.href = '/login/index.html';
+    window.location.href = '../index.html';
 }
 
 var logoutButton = document.getElementById('logoutButton');
@@ -90,7 +93,8 @@ async function fetchData() {
         }
 
     } catch (error) {
-        alert("Please Check Url");
+        console.log(error);
+        alert("Error");
     }
 }
 
@@ -358,7 +362,7 @@ function authUser() {
     if (storedUser) {
         fetchData();
     } else {
-        window.location.href = '/login/index.html';
+        window.location.href = '../index.html';
     }
 }
 
